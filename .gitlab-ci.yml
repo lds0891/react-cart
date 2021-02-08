@@ -1,0 +1,10 @@
+image: node:12.20.0
+
+pages:
+  script:
+    - npm install
+    - npm run build
+
+  artifacts:
+    paths:
+      - public
