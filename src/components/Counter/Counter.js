@@ -3,32 +3,29 @@ import './Counter.css';
 
 class Counter extends Component {
     constructor(props) {
-
         super(props);
 
         this.state = {
           count: 0,
         };
-
-        this.countUp = this.countUp.bind(this);
-        this.countDown = this.countDown.bind(this);
     }
 
-    countUp() {
+    countUp = () => {
         this.setState({
           count: this.state.count + 1,
         });
     };
 
-    countDown () {
+    countDown = () => {
         this.setState({
           count: this.state.count - 1,
         });
     };
 
-    render(){
+    render () {
+        const { count } = this.state;
 
-        return(
+        return (
             <div className="counter">
                 <button
                     className="counter__btn"
@@ -37,7 +34,7 @@ class Counter extends Component {
                     -
                 </button>
                 <span className="counter__number">
-                    { this.state.count }
+                    { count }
                 </span>
                 <button
                     className="counter__btn"

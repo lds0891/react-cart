@@ -1,13 +1,12 @@
-.counter {
+.counter-func {
     display: flex;
     align-items: center;
-    margin-bottom: 50px;
 }
-.counter__btn {
+.counter-func__btn {
     width: 40px;
     height: 30px;
 }
-.counter__number {
+.counter-func__number {
     margin-left: 20px;
     margin-right: 20px;
 }
