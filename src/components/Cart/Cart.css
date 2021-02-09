@@ -12,6 +12,14 @@
     text-decoration: none;
 }
 
+.cart__link:hover {
+    color: var(--extra-color);
+}
+
+.cart__link:hover .cart__item--price {
+    color: var(--dark-orange-color);
+}
+
 .cart__item {
     margin-left: 4px;
 }

@@ -14,6 +14,10 @@
     margin-right: 86px;
 }
 
+.menu__logo-link:hover {
+    color: var(--main-color);
+}
+
 .menu__list {
     list-style: none;
     display: flex;
@@ -31,4 +35,8 @@
 .menu__list-link {
     text-decoration: none;
     color: var(--secondary-color);
+}
+
+.menu__list-link:hover {
+    color: var(--extra-color);
 }
