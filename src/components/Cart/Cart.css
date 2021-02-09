@@ -1,0 +1,31 @@
+.cart {
+
+}
+
+.cart__link {
+    font-family: --main-font;
+    font-size: 16px;
+    line-height: 1.25;
+    color: var(--main-color);
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.cart__item {
+    margin-left: 4px;
+}
+
+.cart__item:first-of-type {
+    margin-left: 0;
+}
+
+.cart__item--price {
+    color: var(--orange-color);
+}
+
+.cart__icon {
+    width: 19px;
+    height: 20px;
+    margin-left: 13px;
+}

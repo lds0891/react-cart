@@ -1,0 +1,12 @@
+:root {
+    --main-font: 'MontserratteRegular';
+    --secondary-font: 'MontserratteMedium';
+    --extra-font: 'MontserratteBlack';
+
+	--main-color: #333333;
+	--secondary-color: #5F5F5F;
+	--extra-color: #000000;
+	--light-grey: #E5E5E5;
+	--orange-color: #FFC09D;
+	--light-color: #FFFFFF;
+}

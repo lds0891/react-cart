@@ -1,0 +1,20 @@
+@font-face {
+	font-family: 'MontserratteRegular';
+	src: url('../assets/fonts/Montserrat-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'MontserratteMedium';
+	src: url('../assets/fonts/Montserrat-Medium.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'MontserratteBlack';
+	src: url('../assets/fonts/Montserrat-Black.ttf') format('truetype');
+	font-weight: 900;
+	font-style: normal;
+}

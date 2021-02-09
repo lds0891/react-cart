@@ -1,5 +1,10 @@
 .App {
-    display: block;
+    width: 100%;
+    font-family: var(--secondary-font);
+}
+.container {
+    max-width: 1264px;
+    width: 100%;
+    padding: 0 15px;
     margin: 0 auto;
-    width: 1000px;
 }
