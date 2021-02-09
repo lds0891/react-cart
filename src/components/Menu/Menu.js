@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import './Menu.css';
 
 class Counter extends Component {
@@ -14,18 +15,18 @@ class Counter extends Component {
 
         return (
             <nav className="menu">
-                <a className="menu__logo-link" href='#'>
+                <NavLink className="menu__logo-link" to={"/"}>
                     <span className="menu__logo-text">SHOP LOGO</span>
-                </a>
+                </NavLink>
                 <ul className="menu__list">
                     <li className="menu__list-item">
-                        <a className="menu__list-link" href='#'>bags</a>
+                        <NavLink className="menu__list-link" to={"/bags"}>bags</NavLink>
                     </li>
                     <li className="menu__list-item">
-                        <a className="menu__list-link" href='#'>shoes</a>
+                        <NavLink className="menu__list-link" to={"/shoes"}>shoes</NavLink>
                     </li>
                     <li className="menu__list-item">
-                        <a className="menu__list-link" href='#'>hats</a>
+                        <NavLink className="menu__list-link" to={"/hats"}>hats</NavLink>
                     </li>
                 </ul>
             </nav>

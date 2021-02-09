@@ -6,6 +6,9 @@
 
 .bags-card__img {
     margin-bottom: 9px;
+    width: 214px;
+    height: 222px;
+    display: block;
 }
 
 .bags-card__name {

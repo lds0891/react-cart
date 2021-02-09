@@ -1,27 +1,21 @@
 import React, { Component } from 'react';
-import 'normalize.css';
 import Header from "./components/Header";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Bags from "./components/Bags";
-// import Counter from './components/Counter';
-// import CounterFunc from './components/CounterFunc';
-
+import 'normalize.css';
 import './App.css';
-import './styles/variable.css';
-import './styles/fonts.css';
-import './styles/base.css';
 
 class App extends Component {
 
   render() {
 
     return (
-      <div className="App">
+      <Router>
+        <div className="App">
           <Header/>
-          <Bags/>
-        {/* <Counter/> */}
-        {/* <CounterFunc/> */}
-
-      </div>
+          <Route exact path="/bags" component={Bags} />
+        </div>
+      </Router>
     );
   }
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Menu from '../Menu';
-import Cart from '../Cart';
+import CartLink from '../CartLink';
 import './Header.css';
 
 class Counter extends Component {
@@ -11,7 +11,6 @@ class Counter extends Component {
         };
     }
 
-
     render () {
 
         return (
@@ -19,7 +18,7 @@ class Counter extends Component {
                 <div className="container">
                     <div className="header__wrap">
                         <Menu/>
-                        <Cart/>
+                        <CartLink/>
                     </div>
                 </div>
             </header>

@@ -1,3 +1,7 @@
+@import url('./styles/base.css');
+@import url('./styles/variable.css');
+@import url('./styles/fonts.css');
+
 .App {
     width: 100%;
     font-family: var(--secondary-font);

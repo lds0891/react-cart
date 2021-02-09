@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import CartIcon from './cart.svg';
-import './Cart.css';
+import { NavLink } from 'react-router-dom';
+import './CartLink.css';
 
-class Cart extends Component {
+class CartLink extends Component {
     constructor(props) {
         super(props);
 
@@ -18,15 +19,15 @@ class Cart extends Component {
 
         return (
             <div className="cart">
-                <a className="cart__link" href="#">
+                <NavLink className="cart__link" to={"/cart"}>
                     <span className="cart__item">{item} items</span>
                     <span className="cart__item">/</span>
                     <span className="cart__item cart__item--price">{price}$</span>
                     <img src={CartIcon} className="cart__icon"/>
-                </a>
+                </NavLink>
             </div>
         )
     }
 }
 
-export default Cart;
+export default CartLink;

@@ -7,7 +7,7 @@ class Bags extends Component {
         super(props);
 
         this.state = {
-            price: 100,
+
         };
     }
 
@@ -17,9 +17,9 @@ class Bags extends Component {
 
         return (
             <div className="bags-card">
-                <img className="bags-card__img" src={BagsImage}/>
-                <h2 className="bags-card__name">Item</h2>
-                <p className="bags-card__price">{price}$</p>
+                <img className="bags-card__img" src={this.props.img}/>
+                <h2 className="bags-card__name">{this.props.item}</h2>
+                <p className="bags-card__price">{this.props.price}</p>
             </div>
         )
     }
