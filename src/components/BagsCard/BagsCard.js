@@ -1,19 +1,12 @@
 import React, { Component } from 'react';
 import './BagsCard.css';
-import BagsImage from '../../assets/img/bag.png';
 
 class Bags extends Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-
-        };
     }
 
     render () {
-
-        const {price} = this.state;
 
         return (
             <div className="bags-card">

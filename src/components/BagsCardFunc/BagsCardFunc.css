@@ -1,0 +1,20 @@
+.bags-card {
+    text-align: center;
+    padding: 0 23px 0 23px;
+    margin-bottom: 37px;
+}
+
+.bags-card__img {
+    margin-bottom: 9px;
+    width: 214px;
+    height: 222px;
+    display: block;
+}
+
+.bags-card__name {
+    margin-bottom: 8px;
+}
+
+.bags-card__price {
+    margin-bottom: 8px;
+}
