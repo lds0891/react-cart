@@ -1,31 +1,9 @@
 .bags {
-    background: var(--light-grey);
-    padding-top: 40px;
-    padding-bottom: 82px;
+    
 }
 
 .bags__content {
     display: flex;
     flex-wrap: wrap;
     margin: 0 -23px 0 -23px;
-}
-
-.bags__btn {
-    width: 220px;
-    padding: 14px 45px;
-    background: inherit;
-    border: 1px solid var(--orange-color);
-    color: var(--orange-color);
-    font-family: var(--secondary-font);
-    font-size: 18px;
-    line-height: 1.22;
-    text-align: center;
-    cursor: pointer;
-    margin: 0 auto;
-    display: block;
-}
-
-.bags__btn:hover {
-    border-color: var(--dark-orange-color);
-    color: var(--dark-orange-color);
 }

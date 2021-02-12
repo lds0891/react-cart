@@ -24,3 +24,23 @@ p {
     margin-top: 0;
 	margin-bottom: 10px;
 }
+
+.btn__all {
+    width: 220px;
+    padding: 14px 45px;
+    background: inherit;
+    border: 1px solid var(--orange-color);
+    color: var(--orange-color);
+    font-family: var(--secondary-font);
+    font-size: 18px;
+    line-height: 1.22;
+    text-align: center;
+    cursor: pointer;
+    margin: 0 auto;
+    display: block;
+}
+
+.btn__all:hover {
+    border-color: var(--dark-orange-color);
+    color: var(--dark-orange-color);
+}

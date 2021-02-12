@@ -30,13 +30,13 @@ const BagsFunc = (props) => {
     )
 
     return (
-        <div className="bags">
+        <div className="bags container-page">
             <div className="container">
                 <h1 className="bags__title">Shoes</h1>
                 <div className="bags__content">
                     {bagsAll}
                 </div>
-                <button className="bags__btn"
+                <button className="btn__all"
                     onClick={showMore}
                 >
                 {expanded ? (

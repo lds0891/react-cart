@@ -33,13 +33,13 @@ class Bags extends Component {
         )
 
         return (
-            <div className="bags">
+            <div className="bags container-page">
                 <div className="container">
                     <h1 className="bags__title">Bags</h1>
                     <div className="bags__content">
                         {bags}
                     </div>
-                    <button className="bags__btn" onClick={this.showMore}>
+                    <button className="btn__all" onClick={this.showMore}>
                     {this.state.expanded ? (
                         <span>SHOW LESS</span>
                     ) : (

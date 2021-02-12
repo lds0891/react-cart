@@ -18,12 +18,12 @@ class CartLink extends Component {
         const {item, price} = this.state;
 
         return (
-            <div className="cart">
-                <NavLink className="cart__link" to={"/cart"}>
-                    <span className="cart__item">{item} items</span>
-                    <span className="cart__item">/</span>
-                    <span className="cart__item cart__item--price">{price}$</span>
-                    <img src={CartIcon} className="cart__icon"/>
+            <div className="cart-link">
+                <NavLink className="cart-link__link" to={"/cart"}>
+                    <span className="cart-link__item">{item} items</span>
+                    <span className="cart-link__item">/</span>
+                    <span className="cart-link__item cart-link__item--price">{price}$</span>
+                    <img src={CartIcon} className="cart-link__icon"/>
                 </NavLink>
             </div>
         )

@@ -1,8 +1,8 @@
-.cart {
+.cart-link {
 
 }
 
-.cart__link {
+.cart-link__link {
     font-family: --main-font;
     font-size: 16px;
     line-height: 1.25;
@@ -12,27 +12,27 @@
     text-decoration: none;
 }
 
-.cart__link:hover {
+.cart-link__link:hover {
     color: var(--extra-color);
 }
 
-.cart__link:hover .cart__item--price {
+.cart-link__link:hover .cart-link__item--price {
     color: var(--dark-orange-color);
 }
 
-.cart__item {
+.cart-link__item {
     margin-left: 4px;
 }
 
-.cart__item:first-of-type {
+.cart-link__item:first-of-type {
     margin-left: 0;
 }
 
-.cart__item--price {
+.cart-link__item--price {
     color: var(--orange-color);
 }
 
-.cart__icon {
+.cart-link__icon {
     width: 19px;
     height: 20px;
     margin-left: 13px;
