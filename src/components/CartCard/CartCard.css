@@ -1,13 +1,9 @@
 .cart-card {
-    display: table-row;
-    vertical-align: middle;
+    text-align: left;
 }
 
 .cart-card__col {
-    display: table-cell;
     padding: 32px 64px 32px 28px;
-    vertical-align: middle;
-    margin-right: 30px;
 }
 
 .cart-card__item {
@@ -26,10 +22,6 @@
     font-size: 24px;
     line-height: 1.22;
     margin-bottom: 0;
-}
-
-.cart-card__price {
-    width: 50%;
 }
 
 .cart-card__price-all {

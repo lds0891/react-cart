@@ -21,21 +21,21 @@ class Cart extends Component {
             <div className="cart container-page">
                 <div className="container">
                     <h1 className="cart__title">Cart</h1>
-                    <div className="cart-form">
-                        <div className="cart-form__header">
-                            <div className="cart-form__row">
-                                <div className="cart-form__col">
+                    <table className="cart-form">
+                        <thead className="cart-form__header">
+                            <tr className="cart-form__row">
+                                <th className="cart-form__col">
                                     <h2 className="cart-form__title">Product</h2>
-                                </div>
-                                <div className="cart-form__col">
+                                </th>
+                                <th className="cart-form__col">
                                     <h2 className="cart-form__title">Price</h2>
-                                </div>
-                                <div className="cart-form__col">
+                                </th>
+                                <th className="cart-form__col">
                                     <h2 className="cart-form__title">Quantity</h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="cart-form__content">
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody className="cart-form__content">
                         <CartCard
                             img={Bag}
                             item={'Item'}
@@ -49,8 +49,8 @@ class Cart extends Component {
                             quantity={'1'}
                             onePrice={'100$ per item'}
                         />
-                        </div>
-                    </div>
+                        </tbody>
+                    </table>
                     <div className="cart__total">
                         <span className="cart__total-header">Total:</span>
                         <span className="cart__total-price">{totalPrice}</span>
