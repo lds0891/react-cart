@@ -2,6 +2,7 @@
     text-align: center;
     padding: 0 23px 0 23px;
     margin-bottom: 37px;
+    cursor: pointer;
 }
 
 .bags-card__img {

@@ -14,7 +14,7 @@ class App extends Component {
 
     return (
       <Switch>
-        <div className="App">
+        <div className="app">
           <Header/>
           <Route exact path="/" component={CounterFunc} />
           <Route exact path="/bags" component={Bags} />

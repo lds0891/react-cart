@@ -23,9 +23,10 @@ const BagsFunc = (props) => {
     const bagsAll = bags.slice(0, itemsToShow).map((u, i) =>
         <BagsCardFunc
             img={u.img}
-            item={u.item}
+            name={u.name}
             price={u.price}
-            key={`${u.item} - ${i}`}
+            currency={u.currency}
+            key={`${u.name} - ${i}`}
         />
     )
 

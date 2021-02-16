@@ -1,0 +1,34 @@
+.cart-form {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+.cart-form__row {
+    text-align: left;
+}
+
+.cart-form__col {
+    padding: 0 64px 18px 28px;
+}
+
+.cart-form__content {
+    border-top: 1px solid var(--border-cart);
+    border-bottom: 1px solid var(--border-cart);
+}
+
+.cart__total {
+    text-align: right;
+    margin-bottom: 188px;
+    font-family: var(--secondary-font);
+    font-size: 24px;
+    line-height: 1.2;
+    color: var(--extra-color);
+}
+
+.cart__total-header {
+    margin-right: 8px;
+}
+
+.btn__all--cart {
+    margin: 0 0 0 auto;
+}
