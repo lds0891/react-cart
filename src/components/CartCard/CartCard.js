@@ -3,22 +3,22 @@ import { useStoreon } from 'storeon/react'
 import DeleteIcon from './delete.svg';
 import './CartCard.css';
 
-const CartCard = ({img, name, price, currency, id}) => {
-    const [quantity, setQuantity] = useState(0);
-    const { dispatch } = useStoreon('cart');
+const CartCard = ({img, name, price, currency, id, quantity}) => {
+    const { dispatch, cart } = useStoreon('cart');
 
     const deleteItem = () => {
-        dispatch('cart/add', {
-            img: img,
-            name: name,
-            price: price,
-            currency: currency,
-            id: id
-        })
+        // dispatch('cart/add', {
+        //     img: img,
+        //     name: name,
+        //     price: price,
+        //     quantity: quantity,
+        //     currency: currency,
+        //     id: id
+        // })
     }
 
     const handleQuantityChange = (e) => {
-        setQuantity(e.target.value)
+        // dispatch('cart/add', {id: id, quantity: 1}, e.target.value)
     }
 
     return (
@@ -37,8 +37,8 @@ const CartCard = ({img, name, price, currency, id}) => {
                         <input className="cart-card__quantity"
                             type="number"
                             name="quantity"
-                            min="1"
-                            value={quantity}
+                            min={1}
+                            defaultValue={1}
                             onChange={handleQuantityChange}
                         />
                     </div>

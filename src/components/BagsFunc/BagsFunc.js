@@ -26,6 +26,7 @@ const BagsFunc = (props) => {
             name={u.name}
             price={u.price}
             currency={u.currency}
+            id={u.id}
             key={`${u.name} - ${i}`}
         />
     )

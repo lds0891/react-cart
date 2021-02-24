@@ -2,11 +2,11 @@ import React from 'react';
 import './BagsCardFunc.css';
 import { useStoreon } from 'storeon/react';
 
-const BagsCardFunc = ({img, name, price, currency}) => {
+const BagsCardFunc = ({img, name, price, currency, id}) => {
     const { dispatch } = useStoreon('cart');
 
     const addCart = () => {
-        dispatch('cart/add', {img: img, name: name, price: price, currency: currency})
+        dispatch('cart/add', {id: id, quantity: 1})
     }
 
     return (

@@ -14,6 +14,7 @@ const CartLink = () => {
         calcSumPriceCart = calcSumPriceCart + item.price;
     });
 
+
     return (
         <div className="cart-link">
             <NavLink className="cart-link__link" to={"/cart"}>

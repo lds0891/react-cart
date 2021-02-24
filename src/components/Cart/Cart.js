@@ -2,24 +2,24 @@ import React, { useState } from 'react';
 import { useStoreon } from 'storeon/react'
 import './Cart.css';
 import CartCard from '../CartCard';
+import back from '../../back'
 
 const Cart = (props) => {
     const { cart } = useStoreon('cart');
-    let priceCartAll = 0;
+    let totalPrice = 0;
 
-    const shoppingCart = cart.map((u, i) =>
-            <CartCard
-                img={u.img}
-                name={u.name}
-                price={u.price}
-                id={u.id}
-                currency={u.currency}
-                key={`${u.name} - ${i}`}
-            />
-    );
+    const shoppingCart = cart.map((u, i) => {
+        let cartFindId = back.find((item) => item.id === u.id);
 
-    cart.forEach((item) => {
-        priceCartAll = priceCartAll + item.price;
+        return <CartCard
+            img={cartFindId.img}
+            name={cartFindId.name}
+            price={cartFindId.price}
+            id={cartFindId.id}
+            quantity={u.quantity}
+            currency={cartFindId.currency}
+            key={`${cartFindId.name} - ${i}`}
+        />
     });
 
     return (
@@ -46,7 +46,7 @@ const Cart = (props) => {
                 </table>
                 <div className="cart__total">
                     <span className="cart__total-header">Total:</span>
-                    <span className="cart__total-price">{priceCartAll}$</span>
+                    <span className="cart__total-price">{totalPrice}$</span>
                 </div>
                 <button className="btn__all btn__all--cart">CHECKOUT</button>
             </div>
