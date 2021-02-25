@@ -6,7 +6,10 @@ const BagsCardFunc = ({img, name, price, currency, id}) => {
     const { dispatch } = useStoreon('cart');
 
     const addCart = () => {
-        dispatch('cart/add', {id: id, quantity: 1})
+        dispatch('cart/add', {
+            id: id,
+            quantity: 1
+        })
     }
 
     return (

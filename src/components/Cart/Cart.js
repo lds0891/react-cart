@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useStoreon } from 'storeon/react'
 import './Cart.css';
 import CartCard from '../CartCard';
 import back from '../../back'
 
-const Cart = (props) => {
+const Cart = () => {
     const { cart } = useStoreon('cart');
-    let totalPrice = 0;
+    const [priceCount, setPriceCount] = useState(0);
 
     const shoppingCart = cart.map((u, i) => {
         let cartFindId = back.find((item) => item.id === u.id);
@@ -21,6 +21,18 @@ const Cart = (props) => {
             key={`${cartFindId.name} - ${i}`}
         />
     });
+
+    useEffect(() => {
+        let priceCountCart = 0;
+
+        cart.forEach((item) => {
+            let cartFindId = back.find((elem) => elem.id === item.id);
+
+            priceCountCart = priceCountCart + cartFindId.price * item.quantity;
+        });
+
+        setPriceCount(priceCountCart)
+    }, [cart])
 
     return (
         <div className="cart container-page">
@@ -46,7 +58,7 @@ const Cart = (props) => {
                 </table>
                 <div className="cart__total">
                     <span className="cart__total-header">Total:</span>
-                    <span className="cart__total-price">{totalPrice}$</span>
+                    <span className="cart__total-price">{priceCount}$</span>
                 </div>
                 <button className="btn__all btn__all--cart">CHECKOUT</button>
             </div>
