@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useStoreon } from 'storeon/react'
 import DeleteIcon from './delete.svg';
 import './CartCard.css';
 
 const CartCard = ({img, name, price, currency, id, quantity}) => {
-    const { dispatch, cart } = useStoreon('cart');
+    const { dispatch } = useStoreon('cart');
 
     const deleteItem = () => {
         dispatch('cart/delete', id)

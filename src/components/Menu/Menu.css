@@ -1,7 +1,6 @@
 .menu {
     display: flex;
     align-items: center;
-    min-height: 60px;
     color: var(--light-color);
 }
 

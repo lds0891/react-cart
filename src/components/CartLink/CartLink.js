@@ -6,7 +6,7 @@ import './CartLink.css';
 import back from '../../back'
 
 const CartLink = () => {
-    const { dispatch, cart } = useStoreon('cart');
+    const { cart } = useStoreon('cart');
     const [itemCount, setItemCount] = useState(0);
     const [priceCount, setPriceCount] = useState(0);
 

@@ -33,7 +33,7 @@ const BagsFunc = (props) => {
 
     return (
         <div className="bags container-page">
-            <div className="container">
+            <div className="container container--product">
                 <h1 className="bags__title">Shoes</h1>
                 <div className="bags__content">
                     {bagsAll}
