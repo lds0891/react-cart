@@ -3,14 +3,14 @@ export function cart (store) {
 
   store.on('cart/add', ({ cart }, addCartItem) => {
 
-    let indexId = cart.findIndex((item) => item.id === addCartItem.id)
+    let indexId = cart.findIndex((item) => item.id === addCartItem.id);
 
     if(indexId === -1) {
       return {
         cart: [...cart, addCartItem]
       }
     } else {
-      cart[indexId].quantity = cart[indexId].quantity + 1
+      cart[indexId].quantity = cart[indexId].quantity + 1;
 
       return {
         cart: [...cart]
@@ -22,7 +22,7 @@ export function cart (store) {
     let indexId = cart.findIndex((item) => item.id === cartItem.id);
 
     if(indexId >= 0) {
-      cart[indexId].quantity = cartItem.quantity
+      cart[indexId].quantity = cartItem.quantity;
 
       return {
         cart: [...cart]
@@ -30,5 +30,15 @@ export function cart (store) {
     }
   })
 
-  
+  store.on('cart/delete', ({cart}, cartItem) => {
+    let indexId = cart.findIndex((item) => item.id === cartItem);
+
+    if(indexId >= 0) {
+      cart.splice(indexId, 1);
+
+      return {
+        cart: [...cart]
+      }
+    }
+  })
 }

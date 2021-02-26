@@ -7,7 +7,7 @@ const CartCard = ({img, name, price, currency, id, quantity}) => {
     const { dispatch, cart } = useStoreon('cart');
 
     const deleteItem = () => {
-        
+        dispatch('cart/delete', id)
     }
 
     const handleQuantityChange = (e) => {
