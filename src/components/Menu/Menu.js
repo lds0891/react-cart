@@ -20,13 +20,13 @@ class Counter extends Component {
                 </NavLink>
                 <ul className="menu__list">
                     <li className="menu__list-item">
-                        <NavLink className="menu__list-link" to={"/bags"}>bags</NavLink>
+                        <NavLink className="menu__list-link" activeClassName="active" to={"/bags"}>bags</NavLink>
                     </li>
                     <li className="menu__list-item">
-                        <NavLink className="menu__list-link" to={"/shoes"}>shoes</NavLink>
+                        <NavLink className="menu__list-link" activeClassName="active" to={"/shoes"}>shoes</NavLink>
                     </li>
                     <li className="menu__list-item">
-                        <NavLink className="menu__list-link" to={"/hats"}>hats</NavLink>
+                        <NavLink className="menu__list-link" activeClassName="active" to={"/hats"}>hats</NavLink>
                     </li>
                 </ul>
             </nav>

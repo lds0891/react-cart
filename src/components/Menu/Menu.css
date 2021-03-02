@@ -36,6 +36,6 @@
     color: var(--secondary-color);
 }
 
-.menu__list-link:hover {
+.menu__list-link:hover, .menu__list-link.active {
     color: var(--extra-color);
 }
