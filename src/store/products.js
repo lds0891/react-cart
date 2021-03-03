@@ -1,7 +1,11 @@
-// export function products (store) {
-//   store.on('@init', () => ({ products: [] }))
+export function products (store) {
+  store.on('@init', () => ({ products: [] }))
 
-//   store.on('products/add', ({ products }, productsNewItems) => {
-//     return { cart: [...products, productsNewItems]}
-//   })
-// }
+  store.on('products/sorting', ({ products }, productsPrice) => {
+    return {}
+  })
+
+  store.on('products/filter', ({ products }, productsFilter) => {
+    return {}
+  })
+}

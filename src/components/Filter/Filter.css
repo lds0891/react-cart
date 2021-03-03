@@ -1,0 +1,12 @@
+.filter {
+    margin-left: 40px;
+}
+
+.filter__select {
+    width: 150px;
+    font-family: var(--secondary-font);
+    font-size: 15px;
+    line-height: 1.22;
+    color: var(--main-color);
+    margin: 0;
+}

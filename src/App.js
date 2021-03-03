@@ -17,8 +17,8 @@ class App extends Component {
         <div className="app">
           <Header/>
           <Route exact path="/" component={CounterFunc} />
-          <Route exact path="/bags" component={Bags} />
-          <Route exact path="/shoes" component={BagsFunc} />
+          <Route exact path="/bags" component={BagsFunc} />
+          <Route exact path="/shoes" component={Bags} />
           <Route exact path="/cart" component={Cart} />
         </div>
       </Switch>

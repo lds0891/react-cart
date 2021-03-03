@@ -36,7 +36,7 @@ class Bags extends Component {
         return (
             <div className="bags container-page">
                 <div className="container container--product">
-                    <h1 className="bags__title">Bags</h1>
+                    <h1 className="bags__title">Shoes</h1>
                     <div className="bags__content">
                         {bags}
                     </div>

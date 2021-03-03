@@ -2,14 +2,15 @@ import React from 'react';
 import PriceIcon from './arrow-price.svg';
 import './Sorting.css';
 
-const Sorting = ({sortingPrice}) => {
-
+const Sorting = ({sortingPrice, isActiveUp, isActiveDown}) => {
+    console.log(isActiveUp)
     return (
         <div className="sorting">
             <span className="sorting__title">Sort by:</span>
             <div className="sorting__wrap">
                 <button
-                    className="sorting__btn sorting__btn--up"
+                    // className="sorting__btn sorting__btn--up"
+                    className={isActiveUp ? "sorting__btn sorting__btn--up active" : "sorting__btn sorting__btn--up"}
                     onClick={sortingPrice}
                     value='upPrice'
                 >
@@ -20,7 +21,8 @@ const Sorting = ({sortingPrice}) => {
                     />
                 </button>
                 <button
-                    className="sorting__btn sorting__btn--down"
+                    // className="sorting__btn sorting__btn--down"
+                    className={isActiveDown ? "sorting__btn sorting__btn--down active" : "sorting__btn sorting__btn--down"}
                     onClick={sortingPrice}
                     value='downPrice'
                 >
