@@ -4,16 +4,26 @@ import './BagsFunc.css';
 import back from '../../back'
 import Sorting from '../Sorting'
 import Filter from '../Filter'
+import Reset from '../Reset';
 
 const BagsFunc = () => {
     const [itemsToShow, setItemsToShow] = useState(10);
     const [expanded, setExpanded] = useState(false);
     const [isActiveUp, setIsActiveUp] = useState(false);
     const [isActiveDown, setIsActiveDown] = useState(false);
+    const [isActiveReset, setIsActiveReset] = useState(false);
 
     const [bags, setBags] = useState(back);
     const [products, setProducts] = useState([]);
     const [choicePrice, setChoicePrice] = useState('default');
+
+    const [selectedOption, setSelectedOption] = useState('default');
+
+    const typesSorting = {
+        default: 'default',
+        upPrice: 'upPrice',
+        downPrice: 'downPrice',
+    };
 
     const showMore = () => {
         const items = 10;
@@ -40,21 +50,8 @@ const BagsFunc = () => {
 
     useEffect(() => {
         const sortedAllProducts = (type) => {
-            const typesSorting = {
-                default: 'default',
-                upPrice: 'upPrice',
-                downPrice: 'downPrice',
-            };
 
-            if (type === typesSorting.upPrice) {
-                setIsActiveUp(true);
-                setIsActiveDown(false);
-            } else if (type === typesSorting.downPrice) {
-                setIsActiveDown(true);
-                setIsActiveUp(false);
-            }
-
-            const sorted = [...bags].sort((a, b) => {
+            const sorted = bags.slice().sort((a, b) => {
 
                 if (type === typesSorting.upPrice) {
                     if (a.price > b.price) return 1;
@@ -66,7 +63,7 @@ const BagsFunc = () => {
                     if (a.price > b.price) return -1;
                 }
 
-                return [...bags];
+                return bags;
             })
 
             setProducts(sorted);
@@ -75,27 +72,80 @@ const BagsFunc = () => {
         sortedAllProducts(choicePrice);
     }, [bags, choicePrice]);
 
-    const sortingPrice = (e) => {
-        setChoicePrice(e.currentTarget.value);
+    const sortingPriceUp = (e) => {
+
+        if (choicePrice === typesSorting.default) {
+            setChoicePrice(e.currentTarget.value)
+            setIsActiveUp(true);
+            setIsActiveDown(false);
+            setIsActiveReset(true);
+        } else if (choicePrice === typesSorting.downPrice) {
+            setChoicePrice(e.currentTarget.value)
+            setIsActiveUp(true);
+            setIsActiveDown(false);
+            setIsActiveReset(true);
+        } else if (choicePrice === typesSorting.upPrice) {
+            setChoicePrice('default')
+            setIsActiveDown(false);
+            setIsActiveUp(false);
+            setIsActiveReset(false);
+        }
+    }
+    const sortingPriceDown = (e) => {
+
+        if (choicePrice === typesSorting.default) {
+            setChoicePrice(e.currentTarget.value)
+            setIsActiveDown(true);
+            setIsActiveUp(false);
+            setIsActiveReset(true);
+        } else if (choicePrice === typesSorting.upPrice) {
+            setChoicePrice(e.currentTarget.value)
+            setIsActiveDown(true);
+            setIsActiveUp(false);
+            setIsActiveReset(true);
+        } else if (choicePrice === typesSorting.downPrice) {
+            setChoicePrice('default')
+            setIsActiveDown(false);
+            setIsActiveUp(false);
+            setIsActiveReset(false);
+        }
     }
 
     const filterPrice = (e) => {
+
         const typesFilter = {
             priceTo: 'priceTo',
             priceFrom: 'priceFrom',
         };
 
+        if (e.currentTarget.value === typesFilter.priceTo) {
+            setIsActiveReset(true);
+        } else if (e.currentTarget.value === typesFilter.priceFrom) {
+            setIsActiveReset(true);
+        }
+
         const filtered = [...back].filter((item) => {
             if (e.currentTarget.value === typesFilter.priceTo) {
-                return item.price < 200
+                return item.price < 200;
             } else if (e.currentTarget.value === typesFilter.priceFrom) {
-                return item.price > 200
+                return item.price > 200;
             }
 
             return [...back];
         })
 
         setBags(filtered);
+
+        setSelectedOption(e.currentTarget.value);
+    }
+
+    const resetAll = () => {
+        setChoicePrice('default');
+        setSelectedOption('default');
+        setBags(back);
+        setIsActiveReset(false);
+        setIsActiveUp(false);
+        setIsActiveDown(false);
     }
 
     return (
@@ -104,13 +154,19 @@ const BagsFunc = () => {
                 <div className="bags__header">
                     <h1 className="bags__title">Bags</h1>
                     <div className="bags__filtration">
+                        <Reset
+                            resetAll={resetAll}
+                            isActiveReset={isActiveReset}
+                        />
                         <Sorting
-                            sortingPrice={sortingPrice}
+                            sortingPriceUp={sortingPriceUp}
+                            sortingPriceDown={sortingPriceDown}
                             isActiveUp={isActiveUp}
                             isActiveDown={isActiveDown}
                         />
                         <Filter
                             filterPrice={filterPrice}
+                            selectedOption={selectedOption}
                         />
                     </div>
                 </div>
