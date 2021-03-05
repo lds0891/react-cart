@@ -1,6 +1,7 @@
 .sorting {
     display: flex;
     align-items: center;
+    margin-left: 40px;
 }
 
 .sorting__title {
@@ -28,6 +29,7 @@
     border: 1px solid var(--extra-color);
     border-radius: 2px;
     cursor: pointer;
+    transition: all .3s;
 }
 
 .sorting__btn:hover, .sorting__btn.active {
@@ -38,10 +40,6 @@
     display: block;
     width: 11px;
     height: 8px;
-}
-
-.sorting__btn--up {
-
 }
 
 .sorting__btn--down {

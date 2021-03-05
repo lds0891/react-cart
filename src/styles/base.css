@@ -38,9 +38,11 @@ p {
     cursor: pointer;
     margin: 0 auto;
     display: block;
+    transition: all .3s;
 }
 
 .btn__all:hover {
     border-color: var(--dark-orange-color);
-    color: var(--dark-orange-color);
+    background: var(--dark-orange-color);
+    color: var(--light-grey);
 }

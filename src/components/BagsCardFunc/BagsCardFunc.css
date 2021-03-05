@@ -1,9 +1,8 @@
 .bags-card {
     text-align: center;
-    padding: 0 23px 0 23px;
-    margin-bottom: 37px;
+    margin: 0 23px 37px 23px;
     cursor: pointer;
-    transition: filter 0.25s ease-in-out;
+    transition: filter 0.3s ease-in-out;
 }
 
 .bags-card__img {
@@ -13,7 +12,6 @@
     display: block;
     border: 1px solid #C4C4C4;
     box-sizing: border-box;
-
 }
 
 .bags-card:hover .bags-card__img {
