@@ -1,29 +1,48 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Header from "./components/Header";
 import { Switch, Route } from 'react-router-dom';
-import Bags from "./components/Bags";
 import 'normalize.css';
 import './App.css';
-import BagsFunc from './components/BagsFunc'
+import Products from './components/Products'
 import Cart from './components/Cart'
-import CounterFunc from './components/CounterFunc';
+import back from './back'
 
-class App extends Component {
+const App = () => {
 
-  render() {
+  const bagsFilter = back.filter(item => item.type === 'bag');
+
+  const shoesFilter = back.filter(item => item.type === 'shoe');
+
+  const hatsFilter = back.filter(item => item.type === 'hat');
+
+  const productsAllRandom = back.sort(() => {
+    return Math.random() - 0.5;
+  });
 
     return (
-      <Switch>
-        <div className="app">
-          <Header/>
-          <Route exact path="/" component={CounterFunc} />
-          <Route exact path="/bags" component={BagsFunc} />
-          <Route exact path="/shoes" component={Bags} />
-          <Route exact path="/cart" component={Cart} />
-        </div>
-      </Switch>
-    );
-  }
+    <Switch>
+      <div className="app">
+        <Header
+          back={back}
+        />
+        <Route exact path="/"
+          render={ () => <Products back={productsAllRandom} title="Products"/> }
+        />
+        <Route path="/bags"
+          render={ () => <Products back={bagsFilter} title="Bags"/> }
+        />
+        <Route path="/shoes"
+          render={ () => <Products back={shoesFilter} title="Shoes"/> }
+        />
+        <Route path="/hats"
+          render={ () => <Products back={hatsFilter} title="Hats"/> }
+        />
+        <Route path="/cart"
+          render={ () => <Cart back={back}/> }
+        />
+      </div>
+    </Switch>
+  );
 }
 
 export default App;

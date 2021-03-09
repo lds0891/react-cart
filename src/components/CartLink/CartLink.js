@@ -3,9 +3,8 @@ import CartIcon from './cart.svg';
 import { NavLink } from 'react-router-dom';
 import { useStoreon } from 'storeon/react';
 import './CartLink.css';
-import back from '../../back'
 
-const CartLink = () => {
+const CartLink = ({back}) => {
     const { cart } = useStoreon('cart');
     const [itemCount, setItemCount] = useState(0);
     const [priceCount, setPriceCount] = useState(0);

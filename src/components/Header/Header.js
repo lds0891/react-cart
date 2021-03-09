@@ -1,29 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Menu from '../Menu';
 import CartLink from '../CartLink';
 import './Header.css';
 
-class Counter extends Component {
-    constructor(props) {
-        super(props);
+const Header = ({back}) => {
 
-        this.state = {
-        };
-    }
-
-    render () {
-
-        return (
-            <header className="header">
-                <div className="container">
-                    <div className="header__wrap">
-                        <Menu/>
-                        <CartLink/>
-                    </div>
+    return (
+        <header className="header">
+            <div className="container">
+                <div className="header__wrap">
+                    <Menu/>
+                    <CartLink back={back}/>
                 </div>
-            </header>
-        )
-    }
+            </div>
+        </header>
+    )
 }
 
-export default Counter;
+export default Header;

@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useStoreon } from 'storeon/react'
 import './Cart.css';
 import CartCard from '../CartCard';
-import back from '../../back'
 
-const Cart = () => {
+const Cart = ({back}) => {
     const { cart } = useStoreon('cart');
     const [priceCount, setPriceCount] = useState(0);
 

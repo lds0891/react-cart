@@ -1,0 +1,28 @@
+.products-card {
+    text-align: center;
+    margin: 0 23px 37px 23px;
+    cursor: pointer;
+    transition: filter 0.3s ease-in-out;
+}
+
+.products-card__img {
+    margin-bottom: 9px;
+    width: 214px;
+    height: 222px;
+    display: block;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+}
+
+.products-card:hover .products-card__img {
+    filter: drop-shadow(0px 1px 3px black);
+    border: none;
+}
+
+.products-card__name {
+    margin-bottom: 8px;
+}
+
+.products-card__price {
+    margin-bottom: 8px;
+}
