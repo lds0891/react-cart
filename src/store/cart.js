@@ -10,7 +10,11 @@ export function cart (store) {
         cart: [...cart, addCartItem]
       }
     } else {
-      cart[indexId].quantity = cart[indexId].quantity + 1;
+      if (cart[indexId].quantity < cart[indexId].quantityMax) {
+        cart[indexId].quantity = cart[indexId].quantity + 1;
+      } else if (cart[indexId].quantity >= cart[indexId].quantityMax) {
+        cart[indexId].quantity = cart[indexId].quantityMax;
+      }
 
       return {
         cart: [...cart]
@@ -22,7 +26,7 @@ export function cart (store) {
     let indexId = cart.findIndex((item) => item.id === cartItem.id);
 
     if(indexId >= 0) {
-      cart[indexId].quantity = cartItem.quantity;
+        cart[indexId].quantity = cartItem.quantity;
 
       return {
         cart: [...cart]

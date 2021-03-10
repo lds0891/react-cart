@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useStoreon } from 'storeon/react'
 import DeleteIcon from './delete.svg';
 import './CartCard.css';
 
-const CartCard = ({img, name, price, currency, id, quantity}) => {
-    const { dispatch } = useStoreon('cart');
+const CartCard = ({img, name, price, currency, id, quantityInCart, quantityMax}) => {
+    const [quantityStock, setQuantityStock] = useState(0);
+    const [priceProduct, setPriceProduct] = useState(0);
+    const { dispatch, cart } = useStoreon('cart');
 
     const deleteItem = () => {
         dispatch('cart/delete', id)
@@ -17,6 +19,17 @@ const CartCard = ({img, name, price, currency, id, quantity}) => {
         })
     }
 
+    useEffect(() => {
+        let itemQuantityMax = 0;
+        let itemPriceProduct = 0;
+
+        itemQuantityMax = quantityMax - quantityInCart;
+        itemPriceProduct = price * quantityInCart;
+
+        setQuantityStock(itemQuantityMax);
+        setPriceProduct(itemPriceProduct);
+    }, [cart])
+
     return (
         <tr className="cart-card" id={id}>
                 <td className="cart-card__col">
@@ -26,17 +39,22 @@ const CartCard = ({img, name, price, currency, id, quantity}) => {
                     </div>
                 </td>
                 <td className="cart-card__col">
-                    <p className="cart-card__price-all">{price * quantity}{currency}</p>
+                    <p className="cart-card__price-all">{priceProduct}{currency}</p>
+                    {quantityInCart > 1 ?
+                        <p className="cart-card__price-per">{price}{currency} per item</p> : ""
+                    }
                 </td>
                 <td className="cart-card__col">
-                    <div className="cart-card__item">
+                    <div className="cart-card__item cart-card__item_quantity">
                         <input className="cart-card__quantity"
                             type="number"
                             name="quantity"
                             min={1}
-                            defaultValue={quantity}
+                            max={quantityMax}
+                            defaultValue={quantityInCart}
                             onChange={handleQuantityChange}
                         />
+                        <span className="cart-card__stock">In stock: {quantityStock}</span>
                     </div>
                 </td>
                 <td className="cart-card__col">

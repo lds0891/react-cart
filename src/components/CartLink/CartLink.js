@@ -16,9 +16,13 @@ const CartLink = ({back}) => {
         cart.forEach((item) => {
             let cartFindId = back.find((elem) => elem.id === item.id);
 
-            itemCountCart = itemCountCart + item.quantity;
-
-            priceCountCart = priceCountCart + cartFindId.price * item.quantity;
+            if(item.quantity < cartFindId.inStock) {
+                itemCountCart = itemCountCart + item.quantity;
+                priceCountCart = priceCountCart + cartFindId.price * item.quantity;
+            } else if (item.quantity >= cartFindId.inStock) {
+                itemCountCart = itemCountCart + cartFindId.inStock;
+                priceCountCart = priceCountCart + cartFindId.price * cartFindId.inStock;
+            }
         });
 
         setItemCount(itemCountCart)

@@ -15,7 +15,8 @@ const Cart = ({back}) => {
             name={cartFindId.name}
             price={cartFindId.price}
             id={cartFindId.id}
-            quantity={u.quantity}
+            quantityInCart={u.quantity}
+            quantityMax={cartFindId.inStock}
             currency={cartFindId.currency}
             key={`${cartFindId.name} - ${i}`}
         />

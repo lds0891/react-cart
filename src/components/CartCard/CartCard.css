@@ -11,6 +11,10 @@
     align-items: center;
 }
 
+.cart-card__item_quantity {
+    display: block;
+}
+
 .cart-card__img {
     display: block;
     width: 148px;
@@ -27,7 +31,7 @@
 .cart-card__price-all {
     font-size: 24px;
     line-height: 1.2;
-    margin-bottom: 0;
+    margin-bottom: 5px;
 }
 
 .cart-card__price-per {
@@ -35,7 +39,6 @@
     font-size: 14px;
     line-height: 17px;
     color: var(--price-color);
-    padding-left: 3px;
 }
 
 .cart-card__quantity {
@@ -47,6 +50,8 @@
     color: var(--main-color);
     border: 1px solid var(--border-color);
     padding: 2px 8px;
+    margin: 0 auto 7px 0;
+    display: block;
 }
 
 .cart-card__btn {
@@ -67,4 +72,12 @@
     width: 100%;
     height: 100%;
     display: block;
+}
+
+.cart-card__stock {
+    display: block;
+    font-family: var(--secondary-font);
+    font-size: 13px;
+    line-height: 1.05;
+    color: var(--main-color);
 }

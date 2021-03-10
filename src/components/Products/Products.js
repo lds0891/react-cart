@@ -36,12 +36,13 @@ const BagsFunc = ({back, title}) => {
         }
     }
 
-    const bagsAll = products.slice(0, itemsToShow).map((u, i) =>
+    const productAll = products.slice(0, itemsToShow).map((u, i) =>
         <ProductsCard
             img={u.img}
             name={u.name}
             price={u.price}
             currency={u.currency}
+            quantityMax={u.inStock}
             id={u.id}
             key={`${u.name} - ${i}`}
         />
@@ -170,7 +171,7 @@ const BagsFunc = ({back, title}) => {
                     </div>
                 </div>
                 <div className="products__content">
-                    {bagsAll}
+                    {productAll}
                 </div>
                 {products.length <= 10 ? '' :
                     <button className="btn__all"
