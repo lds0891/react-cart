@@ -104,7 +104,11 @@ const BagsFunc = ({title, type}) => {
             setChoicePrice('default')
             setIsActiveDown(false);
             setIsActiveUp(false);
-            setIsActiveReset(false);
+            if (selectedOption === 'default') {
+                setIsActiveReset(false);
+            } else {
+                setIsActiveReset(true);
+            }
         }
     }
     const sortingPriceDown = (e) => {
@@ -123,7 +127,11 @@ const BagsFunc = ({title, type}) => {
             setChoicePrice('default')
             setIsActiveDown(false);
             setIsActiveUp(false);
-            setIsActiveReset(false);
+            if (selectedOption === 'default') {
+                setIsActiveReset(false);
+            } else {
+                setIsActiveReset(true);
+            }
         }
     }
 
