@@ -4,18 +4,19 @@ import './Products.css';
 import Sorting from '../Sorting'
 import Filter from '../Filter'
 import Reset from '../Reset';
+import back from '../../back'
 
-const BagsFunc = ({back, title}) => {
+const BagsFunc = ({title, type}) => {
     const [itemsToShow, setItemsToShow] = useState(10);
     const [expanded, setExpanded] = useState(false);
     const [isActiveUp, setIsActiveUp] = useState(false);
     const [isActiveDown, setIsActiveDown] = useState(false);
     const [isActiveReset, setIsActiveReset] = useState(false);
 
-    const [bags, setBags] = useState(back);
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState(back);
+    const [productDefaultFilter, setProductDefaultFilter] = useState(back);
+    const [defaultProducts, setDefaultProducts] = useState([]);
     const [choicePrice, setChoicePrice] = useState('default');
-
     const [selectedOption, setSelectedOption] = useState('default');
 
     const typesSorting = {
@@ -36,7 +37,7 @@ const BagsFunc = ({back, title}) => {
         }
     }
 
-    const productAll = products.slice(0, itemsToShow).map((u, i) =>
+    const productAll = defaultProducts.slice(0, itemsToShow).map((u, i) =>
         <ProductsCard
             img={u.img}
             name={u.name}
@@ -49,28 +50,43 @@ const BagsFunc = ({back, title}) => {
     )
 
     useEffect(() => {
-        const sortedAllProducts = (type) => {
+        const sortedAllProducts = (option) => {
 
-            const sorted = bags.slice().sort((a, b) => {
+            const sorted = products.slice().sort((a, b) => {
 
-                if (type === typesSorting.upPrice) {
+                if (option === typesSorting.upPrice) {
                     if (a.price > b.price) return 1;
                     if (a.price === b.price) return 0;
                     if (a.price < b.price) return -1;
-                } else if (type === typesSorting.downPrice) {
+                } else if (option === typesSorting.downPrice) {
                     if (a.price < b.price) return 1;
                     if (a.price === b.price) return 0;
                     if (a.price > b.price) return -1;
                 }
 
-                return bags;
+                return products;
             })
 
-            setProducts(sorted);
+            setDefaultProducts(sorted);
         }
 
         sortedAllProducts(choicePrice);
-    }, [bags, choicePrice]);
+    }, [products, choicePrice]);
+
+    useEffect(() => {
+        const productFilter = products.filter(item => {
+            if (item.type === type) {
+                return true;
+            } else if (type === 'all') {
+                return products;
+            } else {
+                return false
+            }
+        });
+
+        setProducts(productFilter);
+        setProductDefaultFilter(productFilter);
+    }, [type])
 
     const sortingPriceUp = (e) => {
 
@@ -124,17 +140,17 @@ const BagsFunc = ({back, title}) => {
             setIsActiveReset(true);
         }
 
-        const filtered = [...back].filter((item) => {
+        const filtered = [...productDefaultFilter].filter((item) => {
             if (e.currentTarget.value === typesFilter.priceTo) {
                 return item.price < 200;
             } else if (e.currentTarget.value === typesFilter.priceFrom) {
                 return item.price > 200;
             }
 
-            return [...back];
-        })
+            return [...productDefaultFilter];
+        });
 
-        setBags(filtered);
+        setProducts(filtered);
 
         setSelectedOption(e.currentTarget.value);
     }
@@ -142,7 +158,7 @@ const BagsFunc = ({back, title}) => {
     const resetAll = () => {
         setChoicePrice('default');
         setSelectedOption('default');
-        setBags(back);
+        setProducts(productDefaultFilter);
         setIsActiveReset(false);
         setIsActiveUp(false);
         setIsActiveDown(false);
@@ -173,7 +189,7 @@ const BagsFunc = ({back, title}) => {
                 <div className="products__content">
                     {productAll}
                 </div>
-                {products.length <= 10 ? '' :
+                {defaultProducts.length <= 10 ? '' :
                     <button className="btn__all"
                         onClick={showMore}
                     >

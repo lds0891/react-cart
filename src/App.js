@@ -5,40 +5,27 @@ import 'normalize.css';
 import './App.css';
 import Products from './components/Products'
 import Cart from './components/Cart'
-import back from './back'
 
 const App = () => {
-
-  const bagsFilter = back.filter(item => item.type === 'bag');
-
-  const shoesFilter = back.filter(item => item.type === 'shoe');
-
-  const hatsFilter = back.filter(item => item.type === 'hat');
-
-  const productsAllRandom = back.sort(() => {
-    return Math.random() - 0.5;
-  });
 
     return (
     <Switch>
       <div className="app">
-        <Header
-          back={back}
-        />
+        <Header/>
         <Route exact path="/"
-          render={ () => <Products back={productsAllRandom} title="Products"/> }
+          render={ () => <Products type="all" title="Products"/> }
         />
         <Route path="/bags"
-          render={ () => <Products back={bagsFilter} title="Bags"/> }
+          render={ () => <Products type="bag" title="Bags"/> }
         />
         <Route path="/shoes"
-          render={ () => <Products back={shoesFilter} title="Shoes"/> }
+          render={ () => <Products type="shoe" title="Shoes"/> }
         />
         <Route path="/hats"
-          render={ () => <Products back={hatsFilter} title="Hats"/> }
+          render={ () => <Products type="hat" title="Hats"/> }
         />
         <Route path="/cart"
-          render={ () => <Cart back={back}/> }
+          render={() => <Cart/> }
         />
       </div>
     </Switch>

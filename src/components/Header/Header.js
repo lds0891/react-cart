@@ -3,14 +3,14 @@ import Menu from '../Menu';
 import CartLink from '../CartLink';
 import './Header.css';
 
-const Header = ({back}) => {
+const Header = () => {
 
     return (
         <header className="header">
             <div className="container">
                 <div className="header__wrap">
                     <Menu/>
-                    <CartLink back={back}/>
+                    <CartLink/>
                 </div>
             </div>
         </header>
